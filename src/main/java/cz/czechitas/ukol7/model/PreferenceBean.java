@@ -17,8 +17,8 @@ public class PreferenceBean implements ObservableBean {
     }
 
     public void setPredzdivka(String predzdivka) {
-        this.predzdivka = predzdivka;
         String oldValue = this.predzdivka;
+        this.predzdivka = predzdivka;
         pcs.firePropertyChange("predzdivka", oldValue, predzdivka);
     }
 
@@ -27,20 +27,18 @@ public class PreferenceBean implements ObservableBean {
     }
 
     public void setBarva(Barva barva) {
-        this.barva = barva;
         Barva oldValue = this.barva;
+        this.barva = barva;
         pcs.firePropertyChange("barva", oldValue, barva);
     }
 
-
-
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
-
+        pcs.addPropertyChangeListener(listener);
     }
 
     @Override
     public void removePropertyChangeListener(PropertyChangeListener listener) {
-
+        pcs.removePropertyChangeListener(listener);
     }
 }

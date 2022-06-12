@@ -4,11 +4,9 @@ public enum Barva {
     Bila("bílá"),
     Zluta("žlutá"),
     Cerna("černá"),
-    Zelana("zelená"),
+    Zelena("zelená"),
     Modra("modrá"),
-    Cervena("červená")
-    ;
-
+    Cervena("červená");
 
     private final String barva;
 

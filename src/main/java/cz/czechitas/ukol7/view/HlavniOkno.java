@@ -9,6 +9,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.function.Consumer;
 
 public class HlavniOkno extends JFrame {
 
@@ -25,43 +26,36 @@ public class HlavniOkno extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
     private void init() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //setIconImage(new ImageIcon(Aplikace.class.getResource("czechitas-icon.png")).getImage());
         setLayout(new MigLayout("wrap 4", "[right]rel[50:75:250,grow,fill]unrel[right]rel[50:75:250,grow,fill]"));
         setMinimumSize(new Dimension(400, 200));
 
         FormBuilderWithContainer<PreferenceBean> formBuilder = FormBuilder.create(controller.getModel())
                 .container(this);
 
+        ButtonGroup skupina = new ButtonGroup();
+
         for (Barva value : Barva.values()) {
+
             formBuilder
-                    .label("&Barva")
                     .radioButton(value.getBarva(), "barva", value)
-
-                    .add();
-        }
-
-
+                   .add("left, span");
+        };
 
         formBuilder
                 .label("&Předzdívka")
                 .textField("predzdivka")
-                .add();
-
+                .add("right, span");
 
         formBuilder
                 .panel(panel -> {
-                    //JButton novyButton = new JButton(controller.getNovyAction());
                     JButton ulozitButton = new JButton(controller.getUlozitAction());
-
                     getRootPane().setDefaultButton(ulozitButton);
-
-
                     panel.add(ulozitButton);
                 })
                 .add("right, span");
-
         pack();
     }
 

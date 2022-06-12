@@ -9,7 +9,6 @@ import javax.swing.*;
 
 public class PreferenceController  {
     private final PresentationModel<PreferenceBean> model;
-//    private final Action novyAction;
     private final Action ulozitAction;
 
 
